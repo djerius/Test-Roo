@@ -1,5 +1,5 @@
 use strictures;
-use Test::More;
+use Test2::V0;
 
 use lib 'lib';
 use CorpusCheck;
