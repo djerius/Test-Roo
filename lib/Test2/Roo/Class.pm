@@ -81,7 +81,7 @@ sub run_tests {
       if defined $desc;
 
     # execute tests wrapped in a subtest
-    $ctx = context();
+    my $ctx = context();
     my $pass = run_subtest( $self->description, sub {
         $self->setup;
         $self->_do_tests;
