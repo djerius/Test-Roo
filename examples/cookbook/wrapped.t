@@ -1,5 +1,5 @@
 use strict;
-use Test::Roo;
+use Test2::Roo;
 
 has fixture => (
     is => 'rw',

@@ -1,7 +1,7 @@
 use 5.008001;
 
 package MyTest;
-use Test::Roo;
+use Test2::Roo;
 
 has fixture => (
     is      => 'ro',
@@ -15,7 +15,6 @@ test try_me => sub {
 
 package main;
 use strictures;
-use Test::More;
 
 my $obj = MyTest->new;
 $obj->run_tests;

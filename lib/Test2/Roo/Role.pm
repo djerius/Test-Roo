@@ -1,28 +1,28 @@
 use 5.008001;
 use strictures;
 
-package Test::Roo::Role;
-# ABSTRACT: Composable role for Test::Roo
+package Test2::Roo::Role;
+# ABSTRACT: Composable role for Test2::Roo
 # VERSION
 
-use Test::Roo (); # no imports!
+use Test2::Roo (); # no imports!
 use Sub::Install;
 
 sub import {
     my ( $class, @args ) = @_;
     my $caller = caller;
     Sub::Install::install_sub(
-        { into => $caller, code => 'test', from => 'Test::Roo' } );
+        { into => $caller, code => 'test', from => 'Test2::Roo' } );
     strictures->import; # do this for Moo, since we load Moo in eval
     eval qq{
         package $caller;
         use Moo::Role;
     };
     if (@args) {
-        eval qq{ package $caller; use Test::More \@args };
+        eval qq{ package $caller; use Test2::V0 \@args };
     }
     else {
-        eval qq{ package $caller; use Test::More };
+        eval qq{ package $caller; use Test2::V0 };
     }
     die $@ if $@;
 }
@@ -37,7 +37,7 @@ A testing role:
 
     # t/lib/MyTestRole.pm
     package MyTestRole;
-    use Test::Roo::Role; # loads Moo::Role and Test::More
+    use Test2::Roo::Role; # loads Moo::Role and Test2::V0
 
     requires 'class';
 
@@ -55,11 +55,11 @@ This module defines test behaviors as a L<Moo::Role>.
 
 =head1 USAGE
 
-Importing L<Test::Roo::Role> also loads L<Moo::Role> (which gives you
+Importing L<Test2::Roo::Role> also loads L<Moo::Role> (which gives you
 L<strictures> with fatal warnings and other goodies).
 
-Importing also loads L<Test::More>.  Any import arguments are passed through to
-Test::More's C<import> method.
+Importing also loads L<Test2::V0>.  Any import arguments are passed through to
+Test2::V0's C<import> method.
 
 =head2 Creating and requiring fixtures
 
@@ -106,7 +106,7 @@ confirm that something has been set up or cleaned up.
 
 =head1 EXPORTED FUNCTIONS
 
-Loading L<Test::Roo::Role> exports a single subroutine into the calling package
+Loading L<Test2::Roo::Role> exports a single subroutine into the calling package
 to declare tests.
 
 =head2 test

@@ -1,5 +1,5 @@
 use 5.008001;
-use Test::More 0.96;
+use Test2::V0;
 use Capture::Tiny qw/capture/;
 
 use lib 't/lib';

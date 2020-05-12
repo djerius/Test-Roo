@@ -1,4 +1,4 @@
-use Test::Roo; # loads Moo and Test::More
+use Test2::Roo; # loads Moo and Test::More
 use lib 't/lib';
 
 # provide the fixture

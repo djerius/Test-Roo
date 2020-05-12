@@ -1,4 +1,4 @@
-use Test::Roo;
+use Test2::Roo;
 
 use lib 'lib';
 

@@ -1,4 +1,4 @@
-use Test::Roo;
+use Test2::Roo;
 
 has counter => ( is => 'rw', default => sub { 0 } );
 

@@ -1,5 +1,5 @@
 package EachTest;
-use Test::Roo::Role;
+use Test2::Roo::Role;
 
 has counter => (
     is      => 'rw',

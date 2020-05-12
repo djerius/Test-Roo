@@ -1,5 +1,5 @@
 use 5.008001;
-use Test::Roo;
+use Test2::Roo;
 
 has fixture => (
     is      => 'ro',

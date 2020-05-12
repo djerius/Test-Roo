@@ -1,5 +1,5 @@
 use 5.008001;
-use Test::Roo import => [qw/like done_testing/];
+use Test2::Roo import => [qw/like done_testing/];
 
 has fixture => (
     is      => 'ro',
@@ -10,7 +10,7 @@ test try_me => sub {
     my $self = shift;
     like( $self->fixture, qr/hello world/, "saw fixture" );
     eval { fail("fail() called") };
-    like( $@, qr/undefined subroutine/i, "Not all Test::More functions imported" );
+    like( $@, qr/undefined subroutine/i, "Not all Test2::V0 functions imported" );
 };
 
 run_me;

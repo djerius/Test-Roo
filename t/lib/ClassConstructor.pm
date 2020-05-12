@@ -1,5 +1,5 @@
 package ClassConstructor;
-use Test::Roo::Role;
+use Test2::Roo::Role;
 
 requires 'class';
 

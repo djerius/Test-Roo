@@ -1,8 +1,8 @@
 use 5.008001;
 use strictures;
 
-package Test::Roo::Cookbook;
-# ABSTRACT: Test::Roo examples
+package Test2::Roo::Cookbook;
+# ABSTRACT: Test2::Roo examples
 # VERSION
 
 1;
@@ -11,7 +11,7 @@ package Test::Roo::Cookbook;
 
 =head1 DESCRIPTION
 
-This file offers usage ideas and examples for L<Test::Roo>.
+This file offers usage ideas and examples for L<Test2::Roo>.
 
 =head1 ORGANIZING TEST CLASSES AND ROLES
 
@@ -26,7 +26,7 @@ available to all test blocks:
 
     # examples/cookbook/single_file.t
 
-    use Test::Roo;
+    use Test2::Roo;
 
     use MooX::Types::MooseLike::Base qw/ArrayRef/;
     use Path::Tiny;
@@ -73,7 +73,7 @@ Here is the same corpus checking example as before, but now as a class:
     # examples/cookbook/lib/CorpusCheck.pm
 
     package CorpusCheck;
-    use Test::Roo;
+    use Test2::Roo;
 
     use MooX::Types::MooseLike::Base qw/ArrayRef/;
     use Path::Tiny;
@@ -107,12 +107,12 @@ Here is the same corpus checking example as before, but now as a class:
 
     1;
 
-Running it from a F<.t> file doesn't even need L<Test::Roo>:
+Running it from a F<.t> file doesn't even need L<Test2::Roo>:
 
     # examples/cookbook/standalone.t
 
     use strictures;
-    use Test::More;
+    use Test2::v0;
 
     use lib 'lib';
     use CorpusCheck;
@@ -123,7 +123,7 @@ Running it from a F<.t> file doesn't even need L<Test::Roo>:
 
 =head2 Standalone Test Roles
 
-The real power of L<Test::Roo> is decomposing test behaviors into
+The real power of L<Test2::Roo> is decomposing test behaviors into
 roles that can be reused.
 
 Imagine we want to test a file-finder module like L<Path::Iterator::Rule>.
@@ -132,7 +132,7 @@ that role.  For example, here would be the test file:
 
     # examples/cookbook/test-pir.pl
 
-    use Test::Roo;
+    use Test2::Roo;
 
     use lib 'lib';
 
@@ -152,7 +152,7 @@ could be tested with a test file like this:
 
     # examples/cookbook/test-pcr.pl
 
-    use Test::Roo;
+    use Test2::Roo;
 
     use lib 'lib';
 
@@ -173,7 +173,7 @@ directory, creates files and runs tests:
     # examples/cookbook/lib/IteratorTest.pm
 
     package IteratorTest;
-    use Test::Roo::Role;
+    use Test2::Roo::Role;
 
     use MooX::Types::MooseLike::Base qw/:all/;
     use Class::Load qw/load_class/;
@@ -350,7 +350,7 @@ run and cleans up afterwards:
 
     # example/cookbook/sqlite.t
 
-    use Test::Roo;
+    use Test2::Roo;
     use DBI;
     use Path::Tiny;
 
@@ -426,7 +426,7 @@ separate temporary directory.
 
     # examples/cookbook/with_tempd.t
 
-    use Test::Roo;
+    use Test2::Roo;
     use File::pushd qw/tempd/;
     use Cwd qw/getcwd/;
 
@@ -466,12 +466,12 @@ separate temporary directory.
 =head2 Individual test modifiers
 
 If you want to have method modifiers on an individual test, put your
-L<Test::More> tests in a method, add modifiers to that method, and use C<test>
+L<Test2::V0> tests in a method, add modifiers to that method, and use C<test>
 to invoke it.
 
     # examples/cookbook/hookable_test.t
 
-    use Test::Roo;
+    use Test2::Roo;
 
     has counter => ( is => 'rw', default => sub { 0 } );
 
@@ -501,7 +501,7 @@ C<fresh_test> function.
     # examples/cookbook/wrapped.t
 
     use strict;
-    use Test::Roo;
+    use Test2::Roo;
 
     has fixture => (
         is => 'rw',

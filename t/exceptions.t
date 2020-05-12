@@ -1,5 +1,5 @@
 use 5.008001;
-use Test::More 0.96;
+use Test2::V0;
 use Capture::Tiny 0.12 qw/capture/;
 
 use lib 't/lib';
@@ -16,7 +16,7 @@ my @cases = (
         expect => qr/Can't apply RequiresFixture to main/,
     },
     {
-        label  => "Test::Roo loads strictures",
+        label  => "Test2::Roo loads strictures",
         file   => "t/bin/not-strict.pl",
         expect => qr/requires explicit package name/,
     },

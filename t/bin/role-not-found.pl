@@ -1,5 +1,5 @@
 use 5.008001;
-use Test::Roo; # should import Moo as well
+use Test2::Roo; # should import Moo as well
 
 use lib 't/lib';
 

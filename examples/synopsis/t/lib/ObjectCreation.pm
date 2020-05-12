@@ -1,5 +1,5 @@
 package ObjectCreation;
-use Test::Roo::Role;    # loads Moo::Role and Test::More
+use Test2::Roo::Role;    # loads Moo::Role and Test::More
 
 requires 'class';       # we need this fixture
 

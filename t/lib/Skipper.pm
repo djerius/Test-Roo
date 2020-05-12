@@ -1,7 +1,7 @@
 use 5.008001;
 
 package Skipper;
-use Test::Roo::Role;
+use Test2::Roo::Role;
 
 plan skip_all => "We just want to skip";
 

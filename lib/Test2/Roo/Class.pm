@@ -1,13 +1,13 @@
 use 5.008001;
 use strictures;
 
-package Test::Roo::Class;
-# ABSTRACT: Base class for Test::Roo test classes
+package Test2::Roo::Class;
+# ABSTRACT: Base class for Test2::Roo test classes
 # VERSION
 
 use Moo;
 use MooX::Types::MooseLike::Base qw/Str/;
-use Test::More 0.96 import => [qw/subtest/];
+use Test2::API qw( context run_subtest );
 
 #--------------------------------------------------------------------------#
 # attributes
@@ -62,8 +62,7 @@ method modifiers on C<each_test>) and will call the C<teardown> method
 If a description is provided, it will override any initialized or generated
 C<description> attribute.
 
-The setup, tests and teardown will be executed in a L<Test::More> subtest
-block.
+The setup, tests and teardown will be executed in a L<Test2::Tools::Subtest/subtest_buffered> block.
 
 =cut
 
@@ -82,11 +81,14 @@ sub run_tests {
       if defined $desc;
 
     # execute tests wrapped in a subtest
-    subtest $self->description => sub {
+    $ctx = context();
+    my $pass = run_subtest( $self->description, sub {
         $self->setup;
         $self->_do_tests;
         $self->teardown;
-    };
+    }, { buffered => 1, inherit_trace => 1 } );
+   $ctx->release;
+   return $pass;
 }
 
 #--------------------------------------------------------------------------#
@@ -105,7 +107,7 @@ sub setup { }
 =method each_test
 
 This method wraps the code references set by the C<test> function
-from L<Test::Roo> or L<Test::Roo::Role> in a L<Test::More> subtest block.
+from L<Test2::Roo> or L<Test2::Roo::Role> in a L<Test2::Tools::Subtest/subtest_buffered> block.
 
 It may also be used to anchor modifiers that should run before or after
 each test block, though this can lead to brittle design as modifiers
@@ -136,9 +138,9 @@ sub _do_tests { }
 
 =head1 DESCRIPTION
 
-This module is the base class for L<Test::Roo> test classes.  It provides
+This module is the base class for L<Test2::Roo> test classes.  It provides
 methods to run tests and anchor modifiers.  Generally, you should not extend
-this class yourself, but use L<Test::Roo> to do so instead.
+this class yourself, but use L<Test2::Roo> to do so instead.
 
 =cut
 

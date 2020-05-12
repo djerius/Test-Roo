@@ -1,4 +1,4 @@
-use Test::Roo;
+use Test2::Roo;
 
 plan skip_all => "We just want to skip";
 

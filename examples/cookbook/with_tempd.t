@@ -1,4 +1,4 @@
-use Test::Roo;
+use Test2::Roo;
 use File::pushd qw/tempd/;
 use Cwd qw/getcwd/;
 

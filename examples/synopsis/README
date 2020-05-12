@@ -1,5 +1,5 @@
 SYNOPIS example
 
-Assuming Test::Roo is installed, rom this directory:
+Assuming Test2::Roo is installed, rom this directory:
 
     $ prove -v t

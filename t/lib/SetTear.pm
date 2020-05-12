@@ -1,5 +1,5 @@
 package SetTear;
-use Test::Roo::Role;
+use Test2::Roo::Role;
 use File::Temp;
 
 has tempdir => ( is => 'rw', );

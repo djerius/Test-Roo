@@ -1,5 +1,5 @@
 package IteratorTest;
-use Test::Roo::Role;
+use Test2::Roo::Role;
 
 use MooX::Types::MooseLike::Base qw/:all/;
 use Class::Load qw/load_class/;

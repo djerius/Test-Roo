@@ -1,7 +1,7 @@
 use 5.008001;
 
 package RequiresFixture;
-use Test::Roo::Role;
+use Test2::Roo::Role;
 
 requires 'fixture';
 

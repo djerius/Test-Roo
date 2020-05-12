@@ -1,7 +1,7 @@
 use 5.008001;
 
 package MyTest;
-use Test::Roo;
+use Test2::Roo;
 
 has phrase => (
     is       => 'ro',
@@ -24,7 +24,6 @@ test try_me => sub {
 
 package main;
 use strictures;
-use Test::More;
 
 my @phrases = ( 'hello world', 'goodbye world', );
 
