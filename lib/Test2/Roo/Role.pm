@@ -18,6 +18,7 @@ sub import {
         package $caller;
         use Moo::Role;
     };
+    die $@ if $@;
     if (@args) {
         unshift @args, '!meta';
         eval qq{ package $caller; use Test2::V0 \@args };

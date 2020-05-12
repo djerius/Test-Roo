@@ -20,6 +20,7 @@ sub import {
         use Moo;
         extends 'Test2::Roo::Class'
     };
+    die $@ if $@;
     if (@args) {
         eval qq{ package $caller; use Test2::V0 \@args };
     }
