@@ -24,6 +24,7 @@ test try_me => sub {
 
 package main;
 use strictures;
+use Test2::V0;
 
 my @phrases = ( 'hello world', 'goodbye world', );
 

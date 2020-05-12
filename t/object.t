@@ -15,6 +15,7 @@ test try_me => sub {
 
 package main;
 use strictures;
+use Test2::V0;
 
 my $obj = MyTest->new;
 $obj->run_tests;

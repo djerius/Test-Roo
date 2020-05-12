@@ -14,6 +14,7 @@ with 'ClassConstructor';
 
 package main;
 use strictures;
+use Test2::V0;
 
 for my $c (qw/Digest::MD5 Math::BigInt/) {
     MyTest->run_tests( $c, { class => $c } );
